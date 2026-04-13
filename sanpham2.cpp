@@ -1359,7 +1359,7 @@ void BenhVien::chay()
     } while (choice != 0);
 }
 // ====================================================
-// main.cpp - Rat gon: chi tao doi tuong va chay
+// main.cpp - Rat gon: chi tao doi tuong va chay 
 // Toan bo logic nam trong class BenhVien (OOP dung nghia)
 // ====================================================
 int main()
