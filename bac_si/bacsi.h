@@ -3,33 +3,55 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
+// ================================================================
+// CLASS BacSi
+// Thuoc tinh: maBS, hoTen, nghiepVu, chuyenKhoa, hocVi, quyenHan
+// ================================================================
 class BacSi {
 private:
-    string ten;
-    string chuyenKhoa;
-    int maBS;
-    static int dem; // tự tăng mã bác sĩ
+    int    maBS;       // Ma dinh danh bac si
+    string hoTen;      // Ho va ten bac si
+    string nghiepVu;   // Nghiep vu (VD: Noi khoa, Ngoai khoa, ...)
+    string chuyenKhoa; // Chuyen khoa (VD: Tim mach, Than kinh, ...)
+    string hocVi;      // Hoc vi (VD: Tien si, Thac si, Bac si, ...)
+    string quyenHan;   // Quyen han (VD: Truong khoa, Pho khoa, Bac si dieu tri, ...)
+
+    static int dem;    // Bien dem de tu dong tang maBS
+
 public:
-    // Constructor mặc định
+    // ---- Constructors ----
     BacSi();
-    // Constructor có tham số
-    BacSi(string ten, string chuyenKhoa);
-    // Destructor
+    BacSi(string hoTen, string nghiepVu, string chuyenKhoa,
+          string hocVi, string quyenHan);
+
+    // ---- Destructor ----
     ~BacSi();
-    // Getter
-    string getTen();
-    string getChuyenKhoa();
-    int getMaBS();
-    // Setter
-    void setTen(string ten);
-    void setChuyenKhoa(string chuyenKhoa);
-    // Hàm nhập / xuất
+
+    // ---- Getters ----
+    int    getMaBS()       const { return maBS;       }
+    string getHoTen()      const { return hoTen;      }
+    string getNghiepVu()   const { return nghiepVu;   }
+    string getChuyenKhoa() const { return chuyenKhoa; }
+    string getHocVi()      const { return hocVi;      }
+    string getQuyenHan()   const { return quyenHan;   }
+
+    // ---- Setters ----
+    void setHoTen(string ht)      { hoTen      = ht; }
+    void setNghiepVu(string nv)   { nghiepVu   = nv; }
+    void setChuyenKhoa(string ck) { chuyenKhoa = ck; }
+    void setHocVi(string hv)      { hocVi      = hv; }
+    void setQuyenHan(string qh)   { quyenHan   = qh; }
+
+    // ---- Nhap / Xuat ----
     void nhap();
-    void xuat();
-    // Nạp chồng toán tử
+    void xuat() const;
+
+    // ---- Nap chong toan tu ----
+    bool operator==(const BacSi& other) const { return maBS == other.maBS; }
+
     friend istream& operator>>(istream& in, BacSi& bs);
     friend ostream& operator<<(ostream& out, const BacSi& bs);
-    // So sánh 2 bác sĩ theo mã
-    bool operator==(const BacSi& other);
 };
+
 #endif

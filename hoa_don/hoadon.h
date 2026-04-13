@@ -1,50 +1,65 @@
 #ifndef HOADON_H
 #define HOADON_H
 #include <iostream>
-#include <vector>
 #include <string>
+#include <iomanip>
 using namespace std;
-// ================== CLASS THUOC ==================
+
+const int MAX_THUOC = 50;
+
+// ================================================================
+// CLASS Thuoc
+// ================================================================
 class Thuoc {
 private:
     string tenThuoc;
-    int soLuong;
+    int    soLuong;
     double gia;
+
 public:
-    // Constructor & Destructor
     Thuoc();
     Thuoc(string tenThuoc, int soLuong, double gia);
     ~Thuoc();
+
     // Getter
-   string getTenThuoc() const;
-    int getSoLuong() const;
-    double getGia() const;
-    // Setter
-    void setTenThuoc(string tenThuoc);
-    void setSoLuong(int soLuong);
-    void setGia(double gia); // gia > 0
-    // Nhập / Xuất
+    string getTenThuoc() const;
+    int    getSoLuong()  const;
+    double getGia()      const;
+
+    // Setter voi validation
+    void setTenThuoc(string t);
+    void setSoLuong(int sl);
+    void setGia(double g);
+
     void nhap();
-    void xuat();
+    void xuat() const;
 };
-// ================== CLASS HOA DON ==================
+
+// ================================================================
+// CLASS HoaDon - Chua danh sach thuoc, lien ket voi BenhNhan
+// ================================================================
 class HoaDon {
 private:
-    vector<Thuoc> dsThuoc;
+    int    maBN;
+    Thuoc  dsThuoc[MAX_THUOC];
+    int    soLuongThuoc;
     double tongTien;
+
 public:
-    // Constructor & Destructor
     HoaDon();
+    HoaDon(int maBN);
     ~HoaDon();
-    // Chức năng
+
+    // Getter
+    int    getMaBN();
+    double getTongTien();
+
     void themThuoc(Thuoc t);
     void tinhTongTien();
-    // Nhập / Xuất
     void nhap();
-    void xuat();
-    // Getter
-    double getTongTien();
-    // Nạp chồng toán tử
+    void xuat() const;
+
     friend ostream& operator<<(ostream& out, const HoaDon& hd);
 };
+
 #endif

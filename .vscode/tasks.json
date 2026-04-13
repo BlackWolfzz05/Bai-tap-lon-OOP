@@ -6,8 +6,16 @@
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
+                "-std=c++17",
                 "-g",
-                "${file}",
+                "${workspaceFolder}\\main.cpp",
+                "${workspaceFolder}\\benh_vien\\*.cpp",
+                "${workspaceFolder}\\benh_nhan\\*.cpp",
+                "${workspaceFolder}\\bac_si\\*.cpp",
+
+                "${workspaceFolder}\\hoa_don\\*.cpp",
+                "${workspaceFolder}\\co_so_vat_chat\\*.cpp",
+                "${workspaceFolder}\\he_thong\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
@@ -29,11 +37,18 @@
             "command": "C:/msys64/ucrt64/bin/gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
+                "-std=c++17",
                 "-g",
-                "${file}",
+                "${workspaceFolder}\\main.cpp",
+                "${workspaceFolder}\\benh_vien\\*.cpp",
+                "${workspaceFolder}\\benh_nhan\\*.cpp",
+                "${workspaceFolder}\\bac_si\\*.cpp",
+
+                "${workspaceFolder}\\hoa_don\\*.cpp",
+                "${workspaceFolder}\\co_so_vat_chat\\*.cpp",
+                "${workspaceFolder}\\he_thong\\*.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                ""
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "C:/msys64/ucrt64/bin"
